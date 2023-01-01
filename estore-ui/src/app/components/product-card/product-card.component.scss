@@ -1,0 +1,16 @@
+.product-title{
+    color: black;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.manufacturer-name{
+    color: #767676;
+}
+
+.price{
+    font-weight: 800;
+}

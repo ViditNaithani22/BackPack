@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">Backpack</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <span class=" me-auto mb-2 mb-lg-0"></span>
+      <div class="btn navbar-button"><a class="btn navbar-button" routerLink="backpacks">Backpacks</a></div>
+      <ul class="navbar-nav">
+        <li *ngIf="isLoggedIn" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle navbar-button" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ username }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li *ngIf="isAdminLoggedIn"><a class="dropdown-item" routerLink="inventory">Inventory</a></li>
+            <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+            <li><a class="dropdown-item" href="http://localhost:4200/backpack/new" >Create BackPack</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="btn navbar-button" id="cart-button" routerLink="cart" *ngIf="isLoggedIn && !isAdminLoggedIn"><i class="bi bi-cart3" aria-hidden="true"></i> Cart</div>
+    </div>
+  </div>
+</nav>

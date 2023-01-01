@@ -1,0 +1,102 @@
+<section class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 text-black">
+        <div class="row">
+          <div class="px-5 ms-xl-4">
+            <div class="my-2"></div>
+            <span class="h1 fw-bold mb-0 mt-5 pt-4">{{backpack.name}}</span>
+            <div>Created By : {{user.username}}</div>
+          </div>
+        </div>
+        <div class="row ps-5 mt-3">
+          <div class="col">
+            <div class="card mb-3" style="max-width: 280px;">
+              <div class="row g-0">
+                <div class="col-md-4 p-3">
+                  <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/75230/location-icon-clipart-xl.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8 ps-0">
+                  <div class="card-body">
+                    <h5 class="card-title">Location</h5>
+                    <p class="card-text">{{backpack.location}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-3" style="max-width: 280px;">
+              <div class="row g-0">
+                <div class="col-md-4 p-3">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Backpack_icon.svg/1200px-Backpack_icon.svg.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Activity</h5>
+                    <p class="card-text">{{backpack.activity}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row mt-3 px-5">
+          <p>{{backpack.description}}</p>
+        </div>
+
+        <div class="row mt-3 px-5">
+          <div class="col">
+            <h4>Products</h4>
+          </div>
+          <div class="col">
+
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col ps-3 pe-0">
+                <button (click)="selectAll()" class="btn btn-warning" *ngIf="isLoggedIn">Toggle All</button>
+              </div>
+              <div class="col ps-0">
+                <button (click)="addToCart()" class="btn btn-warning" *ngIf="isLoggedIn">Add to Cart</button>
+              </div>
+            </div>
+            
+          </div>
+          
+          
+          
+        </div>
+        <div class="row mt-3 px-5 gx-0" *ngFor="let product of products">
+          <div class="row product-container">
+              <div class="form-check col-md-1 ps-5">
+                <input class="form-check-input" type="checkbox" value="{{product.id}}" [(ngModel)]="product.isChecked" *ngIf="isLoggedIn">
+              </div>
+              <div class="card mb-3 col-md-11 ps-0" style="max-width: 840px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{product.imageUrl}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{product.name}}</h5>
+                      <p class="card-text text-muted small">{{product.description}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        
+
+
+      </div>
+      <div class="col-sm-4 px-0 d-none d-sm-block">
+        <img src="../../../assets/backpack-detailed-view.jpg"
+          alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+      </div>
+    </div>
+  </div>
+</section>

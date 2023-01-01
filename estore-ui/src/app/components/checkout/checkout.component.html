@@ -1,0 +1,50 @@
+<div class="container-fluid px-3">
+
+    <div class="row my-3">
+        <div class="col">
+            <table class="table">
+                <caption class="caption-top">Order Summary</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+
+                <tr *ngFor="let cartItem of cart">
+                    <td>{{cartItem.name}}</td>
+                    <td>{{cartItem.quantity}}</td>
+                    <td>{{cartItem.totalPrice}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><strong>Total</strong></td>
+                    <td><strong>{{updateTotalPrice()}}</strong></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <div class="row my-3" style="padding-left: 5%; padding-top: -100%; width: 50%;">
+                <form #checkout="ngForm">
+                    <h5>Checkout details</h5>
+                    <label for="deliveryAddress">Delivery address:</label><br>
+                    <input type="text" id="deliveryAddress" name="deliveryAddress" value="" style="width:65%" required
+                        #address="ngModel" [ngModel]=""><br>
+                    <label for="phoneNumber">Mobile/Telephone number:</label><br>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="xxx xxx xxxx" style="width:40%"
+                        pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required #phone="ngModel" [ngModel]=""><br>
+                    <label for="cardNumber">Debit/Credit card number:</label><br>
+                    <input id="cardNumber" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}"
+                        autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required
+                        #card="ngModel" [ngModel]=""><br>
+                    <input type="submit" [disabled]="!checkout.valid" (click)="confirmCheckout()"
+                        style="background-color:#FFFFFF; margin-top:2%; border-width: 0.01mm;">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

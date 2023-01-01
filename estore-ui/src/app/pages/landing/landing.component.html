@@ -1,0 +1,11 @@
+<div class="py-5 mb-5 text-center" id="hero-landing-page">
+    <h1 class="display-5 fw-bold">Backpack</h1>
+    <div class="col-lg-5 mx-auto">
+      <p class="lead mb-4">Find the right equipment for your journey!<br> Be it hiking, camping, cycling or skiing, we've got you covered. Browse through our catalogue or find curated backpacks for your trip.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button *ngIf="!isLoggedIn" type="button" class="btn btn-dark btn-lg px-4 gap-3" routerLink="login">Login</button>
+        <button *ngIf="!isLoggedIn" routerLink="register" type="button" class="btn btn-secondary btn-lg px-4">Sign up</button>
+      </div>
+    </div>
+  </div>
+<app-product-collection></app-product-collection>

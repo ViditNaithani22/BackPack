@@ -1,0 +1,45 @@
+<div class="container-fluid px-3">
+    
+    <div class="row my-3"></div>
+    
+    <table style="width:80%;" aria-describedby="cart">
+        <tr>
+          <th><strong>Product</strong></th>
+          <th><strong>Quantity</strong></th>
+          <th></th>
+          <th><strong>Price</strong></th>
+        </tr>
+        <tr >
+            <tr *ngFor="let product of cart">
+                <td>{{product.name}}</td>
+                <td>
+                    <button type="button" style="border-radius:10px; background-color:red; margin:5%; color: white" (click)="decrease(product)">
+                        -
+                    </button>
+                    {{product.quantity}}
+                    <button type="button" style="border-radius:10px; background-color:green; margin:5%; color:white" (click)="increase(product)">
+                        +
+                    </button>
+                </td>
+                <td><button type="button" (click)="clear(product)" style="border-radius:10px; background-color:#FFFFFF; margin-top:1%">
+                    Clear</button></td>
+                <td>{{product.totalPrice}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total price: {{updateTotalPrice()}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button type="button" (click)="checkout()" style="border-radius:10px; background-color:#FFFFFF; margin-top:5%; margin-bottom: 15%">
+                    Proceed to checkout</button></td>
+            </tr>
+    </table>
+
+
+</div>
+

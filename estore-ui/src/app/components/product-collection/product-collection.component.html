@@ -1,0 +1,13 @@
+<div class="container-fluid px-3">
+    <div class="row">
+        <div class="col">
+            <app-search-bar (onSearchProducts)="searchProducts($event)"></app-search-bar>
+        </div>
+    </div>
+    
+    <div class="row my-3"></div>
+    <div class="row">
+        <app-product-card *ngFor="let product of products" [product]="product" class="col-lg-3 mb-3" [buttonText]="'Add to Cart'" (onClickButton)="addToCart($event)"></app-product-card>
+    </div>
+</div>
+

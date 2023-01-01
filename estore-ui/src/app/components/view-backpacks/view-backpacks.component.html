@@ -1,0 +1,40 @@
+<div class="container-fluid px-3">
+    <div class="row">
+        <div class="col">
+            <div class="row mt-3 mx-5">
+                <app-search-backpacks-bar (onSearchBackpacks)="searchBackpacks($event)"></app-search-backpacks-bar>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-9"></div>
+                <div class="col-md-2">
+                    <a routerLink="/backpack/new" class="btn btn-dark" *ngIf="isLoggedIn">Create backpack</a>
+                </div>
+            </div>
+
+            <div class="row my-3 mt-0"></div>
+            <div class="row ms-4">
+                <div class="card" *ngFor="let backpack of backpacks" style="width: 20%; margin: 1%;">
+                    <img src="{{backpack.imageURL}}" class="card-img-top" alt="{{backpack.name}}" height="200"
+                        style="margin-top: 3%; margin-bottom: 3%">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <a routerLink="/backpack/{{backpack.id}}" class="h6 card-title product-title">{{backpack.name}}</a>
+                            </div>
+                            <div class="col-md-2" *ngIf="loggedInUserId === backpack.userId || isAdminLoggedIn">
+                                <button type="button" (click)="onDelete(backpack)" class="btn btn-danger btn-sm me-2">
+                                    <span><i class="bi bi-trash-fill" aria-hidden="true"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                     
+                    <div class="h6 manufacturer-name mb-0"><i class="bi bi-bullseye me-1" aria-hidden="true"></i>{{backpack.activity}}
+                    </div>
+                    <div class="h6 manufacturer-name mb-0"><i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>{{backpack.location}}
+                    </div><br>
+                    <div class="h6 manufacturer-name mb-0" style="color: gray">{{backpack.description}}</div><br>
+
+                </div>
+                {{updateImages()}}
+            </div>
+        </div>

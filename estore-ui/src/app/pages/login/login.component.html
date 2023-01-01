@@ -1,0 +1,45 @@
+<section class="vh-100">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 text-black">
+          <div class="px-5 ms-xl-4">
+            <span class="h1 fw-bold mb-0 mt-5 pt-4">Login</span>
+          </div>
+  
+          <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-3 pt-5 pt-xl-0 mt-xl-n5">
+  
+            
+            
+            <form style="width: 23rem;" #UserRegistrationForm="ngForm" >
+  
+  
+              <div class="form-outline mb-4">
+
+                <label class="form-label" for="form2Example18">Username</label>
+                <input type="text" id="form2Example18" class="form-control form-control-lg mb-2" #username="ngModel" [(ngModel)]="user.username" required name="username">
+                <h6 class="submitted" *ngIf="doesNotExist">The entered username does not exist</h6>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-dark btn-lg" [disabled]="!UserRegistrationForm.valid" (click)="submitData(user.username)">Login</button>
+                
+              </div>
+              <br>
+              <div>
+                <a href="http://localhost:4200/register">
+                  <h6>Dont have an account? Register</h6>
+                </a>
+              </div>
+  
+  
+            </form>
+           
+          </div>
+  
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+            alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+        </div>
+      </div>
+    </div>
+  </section>

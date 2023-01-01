@@ -1,0 +1,106 @@
+<section class="vh-100" style="background-color: white;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-9">
+
+               
+
+                <div>
+                    <div>
+<form #UserRegistrationForm="ngForm">
+    <h1 style="text-align: center;">Create BackPack</h1>
+                        <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+
+                                <h6 class="mb-0">BackPack name</h6>
+
+                            </div>
+                            <div class="col-md-9 pe-5">
+
+                                <input type="text" class="form-control form-control-lg" #name="ngModel" [(ngModel)]="backpack.name" required name="name"/>
+                               
+                            </div>
+                        </div>
+                        <hr class="mx-n3">
+
+
+<div class="row align-items-center pt-4 pb-3">
+    <div class="col-md-3 ps-5">
+
+        <h6 class="mb-0">Description</h6>
+
+    </div>
+    <div class="col-md-9 pe-5">
+
+        <input type="text" class="form-control form-control-lg" #description="ngModel" [(ngModel)]="backpack.description" required name="description"/>
+
+    </div>
+</div>
+<hr class="mx-n3">
+
+
+<div class="row align-items-center pt-4 pb-3">
+    <div class="col-md-3 ps-5">
+
+        <h6 class="mb-0">Location</h6>
+
+    </div>
+    <div class="col-md-9 pe-5">
+
+        <input type="text" class="form-control form-control-lg" #location="ngModel" [(ngModel)]="backpack.location" required name="location"/>
+
+    </div>
+</div>
+<hr class="mx-n3">
+
+
+
+<div class="row align-items-center pt-4 pb-3">
+    <div class="col-md-3 ps-5">
+
+        <h6 class="mb-0">Activity</h6>
+
+    </div>
+    <div class="col-md-9 pe-5">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="Fishing"  #activity="ngModel" [(ngModel)]="backpack.activity" name="activity" checked/>
+            <label class="form-check-label" for="femaleGender">Fishing</label>
+        </div>
+        
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="Camping" #activity="ngModel" [(ngModel)]="backpack.activity" name="activity"/>
+            <label class="form-check-label" for="maleGender">Camping</label>
+        </div>
+
+
+    </div>
+</div>
+<hr class="mx-n3">
+
+<div >
+<app-search-bar (onSearchProducts)="searchProducts($event)"></app-search-bar>
+</div>
+
+<div style="width: 23rem;" *ngIf="searched">
+    
+    <app-product-card  *ngFor="let product of products" [product]="product" class="col-lg-3 mb-3" [buttonText]="'Add to Backpack'" (onClickButton)="addToBackpack($event)"></app-product-card>
+   
+</div>
+
+                        
+                        <hr class="mx-n3">
+                        <div class="px-5 py-4">
+                            <button type="submit" class="btn btn-primary btn-lg" [disabled]="!UserRegistrationForm.valid" (click)="submitData()"><a href="http://localhost:4200/backpacks" style="color: white;">Create BackPack</a></button>
+                        </div>
+
+</form>
+
+                    </div>
+                
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

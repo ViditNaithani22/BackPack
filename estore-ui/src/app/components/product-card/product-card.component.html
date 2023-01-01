@@ -1,0 +1,12 @@
+<div class="card">
+    <img src="{{product.imageUrl}}" class="card-img-top" alt="{{product.name}}" height="200">
+    <div class="card-body">
+        <div class="h6 manufacturer-name mb-0">{{product.manufacturer}}</div>
+        <a routerLink="/products/{{product.id}}" class="h6 card-title product-title">{{product.name}}</a>
+        <p class="price">${{product.price}}</p>
+        <div class="d-grid">
+            <button  *ngIf="isLoggedIn && !isAdminLoggedIn; else disabledButton" class="btn btn-outline-dark" (click)="onClick(product.id)">{{buttonText}}</button>
+            <ng-template #disabledButton><button class="btn btn-outline-dark" disabled>{{buttonText}}</button></ng-template>
+        </div>
+    </div>
+</div>
